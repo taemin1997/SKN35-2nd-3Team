@@ -108,7 +108,7 @@ users 1─N support_actions              (관리자 개입 이력)
 | 모델 ID | 모델명 | 버전 | 유형 | 정확도 | 정밀도 | 재현율 | F1 | ROC-AUC | PR-AUC | 운영 반영 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `pmh_ml_extratrees_pjw_v1` | ExtraTreesClassifier (Optuna tuned) | 1.0 | ML | 0.888 | 0.4668 | 0.3578 | 0.4051 | **0.7486** | 약 0.40 | ✅ |
-| `dnn_mlp_v2` | DNN (5-fold ensemble) | 2.0 | DL | 0.855 | 0.3324 | 0.3524 | 0.3417 | 0.7233 | `[TODO]` | ☐ |
+| `dnn_mlp_v2` | DNN (5-fold ensemble) | 2.0 | DL | 0.855 | 0.3324 | 0.3524 | 0.3417 | 0.7233 | - | ☐ |
 | (베이스라인) LightGBM | LightGBM | - | ML | `[TODO]` | `[TODO]` | `[TODO]` | `[TODO]` | 약 0.721\~0.725 | 0.300 | ☐ |
 
 **최종 채택 모델**: **ExtraTreesClassifier (`pmh_ml_extratrees_pjw_v1`)** — LightGBM 베이스라인과 DNN 둘 다보다 ROC-AUC가 높아 `--auto-promote-best` 기준으로 프로덕션에 자동 반영됨.
@@ -120,7 +120,6 @@ users 1─N support_actions              (관리자 개입 이력)
 - [`docs/01_데이터_전처리_결과서.md`](./docs/01_데이터_전처리_결과서.md) — 인공지능 데이터 전처리 결과서
 - [`docs/02_AI_학습_결과서.md`](./docs/02_AI_학습_결과서.md) — 인공지능 학습 결과서
 - [`docs/03_학습된_모델_설명.md`](./docs/03_학습된_모델_설명.md) — 학습된 인공지능 모델 설명
-- 발표 PPT — `[TODO: 링크 추가]`
 
 ## ⚙️ 실행 방법
 
@@ -135,7 +134,7 @@ uv sync
 ### DB 접속 설정
 
 ```bash
-cp .env.example .env   # [TODO: 예시 파일 실제로 추가]
+cp .env.example .env   
 ```
 
 `.env`에 아래 항목을 채웁니다 (`app/shared/db.py` 참고, `DB_` 접두사 사용 — Windows의 `USERNAME` 환경변수와 충돌 방지).
